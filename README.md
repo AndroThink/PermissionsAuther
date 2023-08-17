@@ -1,9 +1,9 @@
 
-## PermissionsAuther ![Nuget](https://img.shields.io/nuget/v/AndroThink.Identity.PermissionsAuther)
-
-[![Nuget](https://img.shields.io/nuget/v/AndroThink.Identity.PermissionsAuther)](https://www.nuget.org/packages/AndroThink.Identity.PermissionsAuther/1.0.1)
+## PermissionsAuther [![Nuget](https://img.shields.io/nuget/v/AndroThink.Identity.PermissionsAuther)](https://www.nuget.org/packages/AndroThink.Identity.PermissionsAuther/1.0.1)
 Help in securing endpoints using permissions-based authorization.
+
 ![](https://raw.githubusercontent.com/AndroThink/PermissionsAuther/main/AndroThink.Identity.PermissionsAuther/Images/andro_think.png)
+
 ## How to use 
 
  ### In Program.cs
