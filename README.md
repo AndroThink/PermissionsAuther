@@ -2,7 +2,7 @@
 ## PermissionsAuther ![Nuget](https://img.shields.io/nuget/v/AndroThink.Identity.PermissionsAuther)
 
 Help in securing endpoints using permissions-based authorization.
-![](https://github.com/AndroThink/PermissionsAuther/tree/main/AndroThink.Identity.PermissionsAuther/images/andro_think.png)
+![](https://raw.githubusercontent.com/AndroThink/PermissionsAuther/main/AndroThink.Identity.PermissionsAuther/Images/andro_think.png)
 ## How to use 
 
  ### In Program.cs
