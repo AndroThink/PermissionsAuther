@@ -1,6 +1,7 @@
 
 ## PermissionsAuther ![Nuget](https://img.shields.io/nuget/v/AndroThink.Identity.PermissionsAuther)
 
+[![Nuget](https://img.shields.io/nuget/v/AndroThink.Identity.PermissionsAuther)](https://www.nuget.org/packages/AndroThink.Identity.PermissionsAuther/1.0.1)
 Help in securing endpoints using permissions-based authorization.
 ![](https://raw.githubusercontent.com/AndroThink/PermissionsAuther/main/AndroThink.Identity.PermissionsAuther/Images/andro_think.png)
 ## How to use 
@@ -25,13 +26,13 @@ public IActionResult Index()
 ```
 
 
-#### In the controller above the endpoint that we want to protect it
+#### Or above the controller itself that we want to protect all the endpoints in it
 ```c#
+[HasPermission({ID_Of_Section}, AndroThink.Identity.PermissionsAuther.Enums.Permissions.CanView)]
 public class HomeController : Controller
 {
      ...........
      
-     [HasPermission({ID_Of_Section}, AndroThink.Identity.PermissionsAuther.Enums.Permissions.CanView)]
      public IActionResult Index()
      {
           return View();
