@@ -1,2 +1,84 @@
-# PermissionsAuther
-Help in securing endpoints using permission based authorization
+
+## PermissionsAuther ![Nuget](https://img.shields.io/nuget/v/AndroThink.Identity.PermissionsAuther)
+
+Help in securing endpoints using permissions-based authorization.
+![](https://github.com/AndroThink/PermissionsAuther/tree/main/AndroThink.Identity.PermissionsAuther/images/andro_think.png)
+## How to use 
+
+ ### In Program.cs
+```c#
+builder.Services.UsePermissionsAuther();
+ 
+ .....
+
+app.UseAuthentication();
+app.UseAuthorization();
+```
+
+#### In the controller above the endpoint that we want to protect it
+```c#
+[HasPermission({ID_Of_Section}, AndroThink.Identity.PermissionsAuther.Enums.Permissions.CanView)]
+public IActionResult Index()
+{
+    return View();
+}
+```
+
+
+#### In the controller above the endpoint that we want to protect it
+```c#
+public class HomeController : Controller
+{
+     ...........
+     
+     [HasPermission({ID_Of_Section}, AndroThink.Identity.PermissionsAuther.Enums.Permissions.CanView)]
+     public IActionResult Index()
+     {
+          return View();
+     }
+}
+```
+
+#### In login controller we have to add the permissions claims
+##### A model that implements `AndroThink.Identity.PermissionsAuther.Interfaces.ISectionRole` interface is required so we can store permissions for every user for example 
+```c#
+    public class UserPermission : BasEntity, AndroThink.Identity.PermissionsAuther.Interfaces.ISectionRole
+    {
+        public long UserId { get; set; }
+        public short SectionId { get; set; }
+        public bool CanAdd { get; set; }
+        public bool CanEdit { get; set; }
+        public bool CanDelete { get; set; }
+        public bool CanSoftDelete { get; set; }
+        public bool CanView { get; set; }
+    }
+```
+
+```c#
+
+public class LoginController : Controller
+{
+     ...........
+     
+     [HasPermission({ID_Of_Section}, AndroThink.Identity.PermissionsAuther.Enums.Permissions.CanView)]
+     [HttpPost]
+     public IActionResult Login(string username,string password)
+     {
+          ....
+          
+          var permissions = (List<AndroThink.Identity.PermissionsAuther.Interfaces.ISectionRole>)loggedUsers.UserPermissions;
+          var permissionsClaim = AndroThink.Identity.PermissionsAuther.PermissionUtils.CreatePermissionClaim(permissions);
+          
+          List<Claim> claims = new List<Claim>
+        {
+            new("Claim1", "TestValue1"),
+            new("Claim2","TestValue2"),
+            permissionsClaim
+        };
+
+          var claimsIdentity = new ClaimsIdentity(claims);
+          
+           ....   
+     }
+}
+```

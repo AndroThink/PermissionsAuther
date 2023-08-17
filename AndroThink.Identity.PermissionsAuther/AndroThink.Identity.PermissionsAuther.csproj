@@ -1,18 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>AndroThink.Identity.PermissionsAuther</PackageId>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<Authors>Eslam Mohamed</Authors>
 		<Company>AndroThink</Company>
 		<PackageTags>Identity,Permissions,Authorization</PackageTags>
 		<Description>This package will help in securing api endpoints using permission based authorization</Description>
+		<PackageProjectUrl>https://github.com/AndroThink/PermissionsAuther</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AndroThink/PermissionsAuther</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>andro_think.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath="\"/>
+		<None Include="images\andro_think.png" Pack="true" PackagePath="\"/>
 		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.10" />
 	</ItemGroup>
 </Project>

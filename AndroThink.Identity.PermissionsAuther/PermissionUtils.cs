@@ -21,7 +21,7 @@ namespace AndroThink.Identity.PermissionsAuther
         /// </summary>
         /// <param name="sectionRoles">list of the sections with their permissions applied on them</param>
         /// <returns>claim contains all available sections and their permissions</returns>
-        public static System.Security.Claims.Claim CrearePermissionClaim(IEnumerable<Interfaces.ISectionRole> sectionRoles)
+        public static System.Security.Claims.Claim CreatePermissionClaim(IEnumerable<Interfaces.ISectionRole> sectionRoles)
         {
             var permissions = CreatePermissionRoles(sectionRoles);
             return new System.Security.Claims.Claim(CustomClaimTypes.PermissionClaimType, permissions.PackPermissionsIntoString());
